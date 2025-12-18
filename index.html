@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WINEVAULT</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <style>
+    .top-bar { background:#111; color:#fff; padding:5px 0; font-size:14px; }
+    .banner {
+      background:url('https://via.placeholder.com/1920x600?text=BANNER') no-repeat center/cover;
+      padding:0;
+      color:#fff;
+      text-align:center;
+    }
+    .product-card img { width:100%; border-radius:6px; }
+    footer { background:#111; color:#ddd; padding:40px 0; margin-top:40px; }
+  </style>
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <!-- AGE VERIFY OVERLAY -->
+<div class="age-overlay" id="ageVerify" >
+    <div class="age-box">
+        <div class="age-buttons">
+            <button id="btnUnder" class="age-btn under">CHƯA ĐỦ 18 TUỔI</button>
+            <button id="btnOver" class="age-btn over">ĐỦ 18 TUỔI</button>
+        </div>
+<p id="ageMessage" class="age-message"></p>
+    </div>
+</div>
+
+
+
+<!-- 🔹 TOP BAR -->
+<div class="top-bar text-center">
+  Miễn phí vận chuyển toàn quốc | Hotline: 094 669 8008
+</div>
+
+<!-- 🔹 NAVIGATION -->
+<nav class="taylor-nav">
+    
+    <!-- Menu trái -->
+    <ul class="nav-left">
+      <li><a href="#">SẢN PHẨM</a></li>
+      <li><a href="#">NHÀ SẢN XUẤT</a></li>
+      <li><a href="#">KIẾN THỨC</a></li>
+      <li><a href="#">CỬA HÀNG</a></li>
+      <li><a href="#">KHUYẾN MÃI</a></li>
+    </ul>
+
+    <!-- Logo giữa -->
+    <div class="logo-center">
+      WINEVAULT
+    </div>
+
+    <!-- Icon phải -->
+    <ul class="nav-right">
+      <li><a href="javascript:void(0)" class="open-auth-btn"><i class="bi bi-person"></i></a></li>
+      <li><a href="#"><i class="bi bi-bell"></i></a></li>
+      <li><a href="#"><i class="bi bi-search"></i></a></li>
+      <li><a href="#"><i class="bi bi-bag"></i></a></li>
+    </ul>
+
+  </nav>
+
+<!-- 🔹 BANNER -->
+
+<section class="banner position-relative">
+  <img src="images/banner1.png" class="w-100" alt="Banner Furnaa">
+</section>
+
+<h2 class="section-title">SẢN PHẨM NỔI BẬT</h2>
+<section class="featured-section">
+
+  <div class="featured-products">
+
+    <div class="product-box">
+      <div class="wine-wrapper">
+        <img src="images/wine1.png" class="wine-img">
+      </div>
+      <h4 class="brand">TAYLOR MADE</h4>
+      <h3 class="wine-name">PINOT ROSÉ 2023</h3>
+      <p class="price"><span class="member">MEMBERS: $20.00</span> | $25.00</p>
+    </div>
+
+    <div class="product-box">
+      <div class="wine-wrapper">
+        <img src="img/r2.png" class="wine-img">
+      </div>
+      <h4 class="brand">TAYLOR MADE</h4>
+      <h3 class="wine-name">PINOT ROSÉ 2023</h3>
+      <p class="price"><span class="member">MEMBERS: $20.00</span> | $25.00</p>
+    </div>
+
+    <div class="product-box">
+      <div class="wine-wrapper">
+        <img src="img/r3.png" class="wine-img">
+      </div>
+      <h4 class="brand">HERITAGE</h4>
+      <h3 class="wine-name">CABERNET 2022</h3>
+      <p class="price"><span class="member">MEMBERS: $32.00</span> | $42.00</p>
+    </div>
+
+    <div class="product-box">
+      <div class="wine-wrapper">
+        <img src="img/r4.png" class="wine-img">
+      </div>
+      <h4 class="brand">ESTATE</h4>
+      <h3 class="wine-name">PINOT NOIR 2023</h3>
+      <p class="price"><span class="member">MEMBERS: $24.00</span> | $30.00</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+<!-- 🔹 SECTION TIN TỨC -->
+<section class="container my-5">
+  <h2 class="text-center fw-bold mb-4">Tin tức</h2>
+
+  <div class="list-group">
+    <a class="list-group-item list-group-item-action" href="#">Top 5 chai whisky tặng biếu cao cấp</a>
+    <a class="list-group-item list-group-item-action" href="#">Hướng dẫn chọn rượu vang theo món ăn</a>
+    <a class="list-group-item list-group-item-action" href="#">Rượu vang đỏ & lợi ích sức khỏe</a>
+  </div>
+</section>
+
+<!-- SECTION BANNER -->
+<section class="intro-banner">
+    <img src="images/banner2.png" class="banner-full" alt="">
+</section>
+
+<!-- SECTION THƯƠNG HIỆU -->
+<section class="brand-section">
+    <h2 class="brand-title">THƯƠNG HIỆU NỔI BẬT</h2>
+
+    <div class="brand-slider">
+        <button class="brand-arrow left">&#10094;</button>
+
+        <div class="brand-track">
+            <img src="brands/f1.png" alt="">
+            <img src="brands/f2.png" alt="">
+            <img src="brands/f3.png" alt="">
+            <img src="brands/f4.png" alt="">
+            <img src="brands/f5.png" alt="">
+            <img src="brands/f6.png" alt="">
+        </div>
+
+        <button class="brand-arrow right">&#10095;</button>
+    </div>
+</section>
+
+
+<footer class="grandora-footer">
+
+    <!-- TOP SECTION -->
+    <div class="container footer-top">
+        <div class="row">
+
+            <!-- Legacy text -->
+            <div class="col-md-4 footer-block">
+                <h5 class="footer-title">LEGACY IN EVERY BOTTLE</h5>
+                <p class="footer-text">
+                    Since 1969, Grandora Wines has been crafting wines made
+                    to be shared and savoured. Three generations on, that
+                    same passion continues — grounded in respect for the land,
+                    guided by tradition, and inspired by the moments our wines
+                    are enjoyed.
+                </p>
+            </div>
+
+            <!-- Shop Wines -->
+            <div class="col-md-2 footer-block">
+                <h5 class="footer-title">SHOP WINES</h5>
+                <ul class="footer-list">
+                    <li><a href="#">Best Selling Wines</a></li>
+                    <li><a href="#">Award Winning Wines</a></li>
+                    <li><a href="#">Red Wine</a></li>
+                    <li><a href="#">White Wine</a></li>
+                    <li><a href="#">Gift Sets</a></li>
+                </ul>
+            </div>
+
+            <!-- Information -->
+            <div class="col-md-2 footer-block">
+                <h5 class="footer-title">INFORMATION</h5>
+                <ul class="footer-list">
+                    <li><a href="#">Sales Offices</a></li>
+                    <li><a href="#">International Agents</a></li>
+                    <li><a href="#">Wine & Health</a></li>
+                    <li><a href="#">Affiliates</a></li>
+                    <li><a href="#">Degrees Matter</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div class="col-md-2 footer-block">
+                <h5 class="footer-title">CONTACT</h5>
+                <ul class="footer-list">
+                    <li><a href="#">Hotline: 094 669 8008</a></li>
+                    <li><a href="#">Send us an enquiry</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- BIG LOGO -->
+    <div class="footer-logo-big text-center">
+        WINEVAULT
+    </div>
+
+    <!-- BOTTOM SECTION -->
+    <div class="footer-bottom container text-center">
+
+        <!-- Payment Icons (Bạn thay hình thật sau) -->
+        <div class="payment-icons">
+            <img src="images/logoamex.png">
+            <img src="images/pay-mastercard.png">
+            <img src="images/pay-amex.png">
+            <img src="images/pay-gpay.png">
+            <img src="images/pay-applepay.png">
+        </div>
+
+        <p class="footer-copy">
+            WINEVAULT Wines © 2025 | All Rights Reserved | Liquor Licence Number 57600445
+        </p>
+
+        <!-- Social icons -->
+        <div class="social-icons">
+            <i class="bi bi-facebook"></i>
+            <i class="bi bi-instagram"></i>
+            <i class="bi bi-youtube"></i>
+            <i class="bi bi-linkedin"></i>
+        </div>
+
+        <div class="footer-terms">
+            <a href="#">Terms</a> · <a href="#">Privacy</a>
+        </div>
+
+    </div>
+</footer>
+
+<div class="auth-overlay" id="authPopup">
+    <div class="auth-modal">
+
+        <span class="auth-close" id="closeAuth">&times;</span>
+
+        <h2 class="auth-logo">WINEVAULT</h2>
+
+        <div class="auth-tabs">
+            <button class="auth-tab active" id="loginTab">Đăng nhập</button>
+            <button class="auth-tab" id="registerTab">Đăng ký</button>
+        </div>
+
+        <form class="auth-form" id="loginForm">
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Mật khẩu" required>
+            <button class="auth-submit">Đăng nhập</button>
+        </form>
+
+        <form class="auth-form" id="registerForm" style="display:none;">
+            <input type="text" placeholder="Họ và tên" required>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Mật khẩu" required>
+            <button class="auth-submit">Tạo tài khoản</button>
+        </form>
+
+    </div>
+</div>
+
+
+
+<script src="auth.js"></script>
+
+
+</body>
+</html>
+
