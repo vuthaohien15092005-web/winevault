@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta charset="utf-8" />
+<meta name="Author" content="Apple Inc." />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="icon" href="/favicon.ico" />
+<link rel="mask-icon" href="/apple-logo.svg" color="#333333">
+
+<link rel="stylesheet" href="/assets/styles/global.dist.css?13222540152" type="text/css" />
+<link rel="stylesheet" href="/assets/styles/dark-mode.css?06182556073" type="text/css" media="(prefers-color-scheme: dark)" data-color-scheme="dark" />
+<link rel="stylesheet" href="/assets/styles/localization.css?02002524063" type="text/css" />
+
+<script src="/assets/scripts/lib/jquery/jquery-3.6.0.min.js?17182448067"></script>
+<script src="/assets/scripts/settings.js?17182448067"></script>
+<script src="/assets/scripts/language-locales.js?17182448067"></script>
+<script src="/assets/scripts/DeveloperBreadcrumbs.js?05182434080"></script>
+<script src="/assets/metrics/scripts/analytics-module.js?47192517158"></script>
+
+<script async src="/assets/scripts/retinate.js?30152505148"></script>
+<script src="/assets/scripts/global-logout.js?17182448067"></script>
+
+<script async crossorigin src="https://sfss.cdn-apple.com/2.0.0-beta.2/sf-symbol.js?14082510342"></script>
+<link rel="stylesheet" href="https://sf-saas.cdn-apple.com/2.4.0-beta.0/animations/all.css" type="text/css" />
+
+
+
+
+
+	<link rel="stylesheet" href="https://www.apple.com/wss/fonts?families=SF+Pro,v3|SF+Pro+Icons,v3">
+<link rel="stylesheet" href="https://www.apple.com/wss/fonts?family=SF+Mono&v=2" type="text/css" />
+<link rel="stylesheet" href="https://www.apple.com/wss/fonts?family=Apple+Icons&v=1" type="text/css" />
+	<title>What’s new in Apple Pay - Apple Developer</title>
+	<meta name="omni_page" content="What’s new - Apple Pay - (English)" />
+	<meta name="Description" content="Learn about the latest Apple Pay features that can be implemented in apps and websites." />
+
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:site_name" content="Apple Developer" />
+	<meta property="og:type" content="website" />
+	<meta property="og:image" content="https://developer.apple.com/news/images/og/apple-pay-og.jpg" />
+	<meta property="og:title" content="What’s new in Apple Pay" />
+	<meta property="og:description" content="Learn about the latest Apple Pay features that can be implemented in apps and websites." />
+	<meta property="og:url" content="https://developer.apple.com/apple-pay/whats-new/" />
+
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:image" content="https://developer.apple.com/news/images/og/apple-pay-og-twitter.jpg">
+	<meta name="twitter:description" content="Learn about the latest Apple Pay features that can be implemented in apps and websites.">
+	<meta name="twitter:title" content="What’s new in Apple Pay">
+	<meta name="twitter:url" content="https://developer.apple.com/apple-pay/whats-new/">
+
+	<link rel="alternate" href="https://developer.apple.com/apple-pay/whats-new/" hreflang="en" />
+	<link rel="alternate" href="https://developer.apple.com/cn/apple-pay/whats-new/" hreflang="zh-CN" />
+	<link rel="alternate" href="https://developer.apple.com/jp/apple-pay/whats-new/" hreflang="ja-JP" />
+	<link rel="alternate" href="https://developer.apple.com/kr/apple-pay/whats-new/" hreflang="ko-KR" />
+	<link rel="canonical" href="https://developer.apple.com/apple-pay/whats-new/" />
+
+	<link rel="stylesheet" href="/assets/styles/router-strip.css" type="text/css">
+	<link type="text/css" rel="stylesheet" href="/apple-pay/styles/apple-pay.css" />
+	<link type="text/css" rel="stylesheet" href="/apple-pay/styles/whats-new.css" />
+</head>
+
+<body id="whats-new" class="dmf">
+	<script>
+	// Execute immediately to avoid UI flash
+	(function () {
+		const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+		const body = document.body;
+
+		// If theme-dark or theme-light is already applied, do nothing and lock it
+		if (body.classList.contains("theme-dark") || body.classList.contains("theme-light")) {
+
+			// Set the data-color-scheme attribute based on the existing theme
+			body.setAttribute('data-color-scheme', body.classList.contains("theme-dark") ? "dark" : "light");
+
+			// Prevent future modifications
+			window.__disableColorScheme = true;
+
+			// Hide the color picker immediately
+			const style = document.createElement('style');
+			style.textContent = '.color-scheme-toggle { display: none !important; }';
+			document.head.appendChild(style);
+
+			return;
+		}
+
+		// Otherwise, set theme normally based on user settings or system preference
+		if (window.Settings && window.Settings.preferredColorScheme) {
+			const colorTheme = (window.Settings.preferredColorScheme === 'auto') && !prefersDark ? 'light'
+				: (window.Settings.preferredColorScheme === 'light') ? 'light' : 'dark';
+			body.setAttribute('data-color-scheme', colorTheme);
+			colorTheme === "dark" ? body.classList.add("theme-dark") : body.classList.add("theme-light");
+		} else {
+			const colorTheme = prefersDark ? 'dark' : 'light';
+			body.setAttribute('data-color-scheme', colorTheme);
+			prefersDark ? body.classList.add("theme-dark") : body.classList.add("theme-light");
+		}
+	})();
+</script>
+<link rel="stylesheet" href="/assets/styles/globalnav.css?02002524063" type="text/css" />
+
+<link rel="stylesheet" href="/assets/styles/suggest-lang.css?27202513134" type="text/css" />
+<div id="suggest-lang" class="ribbon hide" lang="en">
+	<div class="ribbon-content-wrapper">
+		<div class="ribbon-content row">
+			<div class="column large-12 large-centered">
+				<p><a href="#" id="suggest-link" class="ribbon-link more">View in English</a></p>
+				<button id="suggest-closer" class="icon icon-after icon-reset" aria-label="Dismiss language suggestion" tabindex="0"></button>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="/assets/scripts/suggest-lang.js?17182448067"></script>
+<aside id="ac-gn-segmentbar" class="ac-gn-segmentbar" lang="en-US" dir="ltr">
+</aside>
+<input type="checkbox" id="ac-gn-menustate" class="ac-gn-menustate" />
+<nav id="ac-globalnav" class="no-js" role="navigation" aria-label="Global" data-hires="false" data-analytics-region="global nav" lang="en-US" dir="ltr"
+    data-www-domain="www.apple.com"
+    data-store-locale="us"
+    data-store-root-path="/us"
+    data-store-api="/[storefront]/shop/bag/status"
+    data-search-locale="en_US"
+    data-search-suggestions-api="/search-services/suggestions/"
+    data-search-defaultlinks-api="/search-services/suggestions/defaultlinks/"
+    data-search-suggestions-enabled="false">
+	<div class="ac-gn-content">
+		<ul class="ac-gn-header">
+			<li class="ac-gn-item ac-gn-menuicon">
+				<label class="ac-gn-menuicon-label" for="ac-gn-menustate" aria-hidden="true">
+					<span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-top">
+						<span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-top"></span>
+					</span>
+					<span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-bottom">
+						<span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-bottom"></span>
+					</span>
+				</label>
+				<a href="#ac-gn-menustate" role="button" class="ac-gn-menuanchor ac-gn-menuanchor-open" id="ac-gn-menuanchor-open">
+					<span class="ac-gn-menuanchor-label">Global Nav Open Menu</span>
+				</a>
+				<a href="#" role="button" class="ac-gn-menuanchor ac-gn-menuanchor-close" id="ac-gn-menuanchor-close">
+					<span class="ac-gn-menuanchor-label">Global Nav Close Menu</span>
+				</a>
+			</li>
+			<li class="ac-gn-item ac-gn-apple">
+				<a class="ac-gn-link ac-gn-link-apple-developer" href="/" data-analytics-title="appledeveloper home" id="ac-gn-firstfocus-small">
+					<span class="ac-gn-link-text">Apple Developer</span>
+				</a>
+			</li>
+		</ul>
+		<div class="ac-gn-search-placeholder-container" role="search">
+			<div class="ac-gn-search ac-gn-search-small">
+				<a id="ac-gn-link-search-small" class="ac-gn-link" href="/search/" data-analytics-title="search" data-analytics-click="search" data-analytics-intrapage-link aria-label="Search">
+					<div class="ac-gn-search-placeholder-bar">
+						<div class="ac-gn-search-placeholder-input">
+							<div class="ac-gn-search-placeholder-input-text" aria-hidden="true">
+								<div class="ac-gn-link-search ac-gn-search-placeholder-input-icon"></div>
+								<span class="ac-gn-search-placeholder">Search</span>
+							</div>
+						</div>
+						<div class="ac-gn-searchview-close ac-gn-searchview-close-small ac-gn-search-placeholder-searchview-close">
+							<span class="ac-gn-searchview-close-cancel" aria-hidden="true">Cancel</span>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+		<ul class="ac-gn-list">
+			<li class="ac-gn-item ac-gn-apple">
+				<a class="ac-gn-link ac-gn-link-apple-developer" href="/" data-analytics-title="appledeveloper home" id="ac-gn-firstfocus">
+					<span class="ac-gn-link-text">Apple Developer</span>
+					</a>
+			</li>
+			<li class="ac-gn-item ac-gn-item-menu ac-gn-news">
+				<a class="ac-gn-link ac-gn-link-news" href="/news/" data-analytics-title="news">
+					<span class="ac-gn-link-text">News</span>
+					</a>
+			</li>
+			<li class="ac-gn-item ac-gn-item-menu ac-gn-discover">
+				<a class="ac-gn-link ac-gn-link-discover" href="/discover/" data-analytics-title="discover">
+					<span class="ac-gn-link-text">Discover</span>
+					</a>
+			</li>
+			<li class="ac-gn-item ac-gn-item-menu ac-gn-design">
+				<a class="ac-gn-link ac-gn-link-design" href="/design/" data-analytics-title="design">
+					<span class="ac-gn-link-text">Design</span>
+					</a>
+			</li>
+			<li class="ac-gn-item ac-gn-item-menu ac-gn-develop">
+				<a class="ac-gn-link ac-gn-link-develop" href="/develop/" data-analytics-title="develop">
+					<span class="ac-gn-link-text">Develop</span>
+					</a>
+			</li>
+			<li class="ac-gn-item ac-gn-item-menu ac-gn-distribute">
+				<a class="ac-gn-link ac-gn-link-distribute" href="/distribute/" data-analytics-title="distribute">
+					<span class="ac-gn-link-text">Distribute</span>
+					</a>
+			</li>
+			<li class="ac-gn-item ac-gn-item-menu ac-gn-dsupport">
+				<a class="ac-gn-link ac-gn-link-dsupport" href="/support/" data-analytics-title="dsupport">
+					<span class="ac-gn-link-text">Support</span>
+					</a>
+			</li>
+			<li class="ac-gn-item ac-gn-item-menu ac-gn-account">
+				<a class="ac-gn-link ac-gn-link-account" href="/account/" data-analytics-title="account">
+					<span class="ac-gn-link-text">Account</span>
+					</a>
+			</li>
+			<li class="ac-gn-item ac-gn-item-menu ac-gn-search" role="search">
+				<a id="ac-gn-link-search" class="ac-gn-link ac-gn-link-search" href="/search/" data-analytics-title="search" data-analytics-click="search" data-analytics-intrapage-link aria-label="Search"></a>
+			</li>
+		</ul>
+		<aside id="ac-gn-searchview" class="ac-gn-searchview" role="search" data-analytics-region="search">
+			<div class="ac-gn-searchview-content">
+				<div class="ac-gn-searchview-bar">
+					<div class="ac-gn-searchview-bar-wrapper">
+						<form id="ac-gn-searchform" class="ac-gn-searchform" action="/search/" method="get">
+							<div class="ac-gn-searchform-wrapper">
+								<input id="ac-gn-searchform-input" class="ac-gn-searchform-input" type="text" name="q" aria-label="Search" placeholder="Search" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="true" aria-owns="quicklinks suggestions" />
+								<button id="ac-gn-searchform-submit" class="ac-gn-searchform-submit" type="submit" disabled aria-label="Submit Search"></button>
+								<button id="ac-gn-searchform-reset" class="ac-gn-searchform-reset" type="reset" disabled aria-label="Clear Search">
+										<span class="ac-gn-searchform-reset-background"></span>
+									</button>
+							</div>
+						</form>
+						<button id="ac-gn-searchview-close-small" class="ac-gn-searchview-close ac-gn-searchview-close-small" aria-label="Cancel Search">
+								<span class="ac-gn-searchview-close-cancel" aria-hidden="true">
+									Cancel
+								</span>
+							</button>
+					</div>
+				</div>
+				<aside id="ac-gn-searchresults" class="ac-gn-searchresults hidden" data-string-quicklinks="Quick Links" data-string-suggestions="Suggested Searches" data-string-noresults="">
+                    <section class="ac-gn-searchresults-section ac-gn-searchresults-section-defaultlinks">
+                        <div class="ac-gn-searchresults-section-wrapper">
+							<div class="search-group-checkbox hidden"><input id="group-input" type="checkbox" name="group-filter" checked>Only search within “<span id="group-search-label"></span>”</div>
+                            <h3 class="ac-gn-searchresults-header ac-gn-searchresults-animated">Quick Links</h3>
+                            <ul class="ac-gn-searchresults-list" id="defaultlinks" role="listbox">
+                            </ul>
+                            <span role="status" class="ac-gn-searchresults-count" aria-live="polite">5 Quick Links</span>
+                        </div>
+                    </section>
+                </aside>
+			</div>
+			<button id="ac-gn-searchview-close" class="ac-gn-searchview-close" aria-label="Cancel Search">
+					<span class="ac-gn-searchview-close-wrapper">
+						<span class="ac-gn-searchview-close-left"></span>
+						<span class="ac-gn-searchview-close-right"></span>
+					</span>
+				</button>
+		</aside>
+			</div>
+</nav>
+<div class="ac-gn-blur"></div>
+<div id="ac-gn-curtain" class="ac-gn-curtain"></div>
+<div id="ac-gn-placeholder" class="ac-nav-placeholder"></div>
+<script src="/assets/scripts/ac-globalnav.built.js?17182448067"></script>
+<link rel="stylesheet" href="/assets/styles/search.css?02002524063">
+<script src="/assets/scripts/search.js?17182448067"></script>
+
+	<!-- metrics -->
+<script>
+	/* RSID: */
+	var s_account="awdappledeveloper"
+</script>	
+<script src="/assets/metrics/scripts/analytics.js"></script>
+<script>
+	s_sections = [
+		{
+			"pattern": "^/documentation",
+			"channel": "www.documentation.developer"
+		},
+		{
+			"pattern": "^/library",
+			"channel": "www.documentation.developer"
+		},
+		{
+			"pattern": "^/tutorials",
+			"channel": "www.documentation.developer"
+		},	
+		{
+			"pattern": "human\\-interface\\-guidelines",
+			"channel": "www.hig.developer"
+		},
+		{
+			"pattern": "/testflight/",
+			"channel": "www.appstoreconnect.developer"
+		},
+		{
+			"pattern": "/app\\-store\\-connect/",
+			"channel": "www.appstoreconnect.developer"
+		},
+		{
+			"pattern": "/support/app\\-store\\-connect/",
+			"channel": "www.appstoreconnect.developer"
+		},
+		{
+			"pattern": "/help/app\\-store\\-connect/",
+			"channel": "www.appstoreconnect.developer"
+		},
+		{
+			"pattern": "/wwdc/",
+			"channel": "www.wwdc.developer"
+		},
+		{
+			"pattern": "/wwdc\\d{2}/",
+			"channel": "www.wwdc.developer"
+		},
+		{
+			"pattern": "/videos/",
+			"channel": "www.videos.developer"
+		},
+		{
+			"pattern": "^/account",
+			"channel": "www.account.developer"
+		},
+		{
+			"pattern": "downloads?",
+			"channel": "www.download.developer"
+		},
+		{
+			"pattern": "/localization/",
+			"channel": "www.appstore.developer"
+		},	
+		{
+			"pattern": "/app\\-store/",
+			"channel": "www.appstore.developer"
+		},
+		{
+			"pattern": "/in\\-app\\-purchase/",
+			"channel": "www.appstore.developer"
+		},
+		{
+			"pattern": "/cn/",
+			"channel": "www.cn.developer"
+		},
+		{
+			"pattern": "/jp/",
+			"channel": "www.jp.developer"
+		},
+		{
+			"pattern": "/kr/",
+			"channel": "www.kr.developer"
+		},
+		{
+			"pattern": "/de/",
+			"channel": "www.de.developer"
+		},
+		{
+			"pattern": "/la/",
+			"channel": "www.la.developer"
+		},
+		{
+			"pattern": "/fr/",
+			"channel": "www.fr.developer"
+		},
+		{
+			"pattern": "/it/",
+			"channel": "www.it.developer"
+		},
+		{
+			"pattern": "/br/",
+			"channel": "www.br.developer"
+		}
+	];
+	
+	s.pageName= AC && AC.Tracking && AC.Tracking.pageName();
+	s.channel="www.en.developer";
+	
+	s_sections.forEach((s_section) => {
+		var regex = new RegExp(s_section.pattern);
+		
+		if(location.pathname.search(regex) !== -1) {
+			s.channel=s_section.channel;
+		}
+	});
+	
+	/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+	var s_code=s.t();if(s_code)document.write(s_code)
+</script>
+<!-- /metrics -->
+	<link rel="stylesheet" property="stylesheet" href="/assets/styles/localnav.css" type="text/css" />
+<input type="checkbox" id="localnav-menustate" class="localnav-menustate"/>
+<nav id="localnav" class="localnav localnav-scrim" data-sticky role="navigation">
+	<div class="localnav-wrapper">
+		<div class="localnav-background"></div>
+		<div class="localnav-content">
+			<h2 class="localnav-title">
+				<a href="/apple-pay/">Apple Pay</a>
+			</h2>
+
+			<div class="localnav-menu">
+				<a href="#localnav-menustate" class="localnav-menucta-anchor localnav-menucta-anchor-open" id="localnav-menustate-open">
+					<span class="localnav-menucta-anchor-label">Open Menu</span>
+				</a>
+				<a href="#" class="localnav-menucta-anchor localnav-menucta-anchor-close" id="localnav-menustate-close">
+					<span class="localnav-menucta-anchor-label">Close Menu</span>
+				</a>
+				<div class="localnav-menu-tray">
+					<ul class="localnav-menu-items">
+						<li class="localnav-menu-item">
+							<a href="/apple-pay/" class="localnav-menu-link">Overview</a>
+						</li>
+						<li class="localnav-menu-item">
+							<a href="/apple-pay/whats-new/" class="localnav-menu-link">What’s New</a>
+						</li>
+						<li class="localnav-menu-item">
+							<a href="/apple-pay/planning/" class="localnav-menu-link">Planning</a>
+						</li>
+						<li class="localnav-menu-item">
+							<a href="/apple-pay/implementation/" class="localnav-menu-link">Implementation</a>
+						</li>
+						<li class="localnav-menu-item">
+							<a href="/apple-pay/marketing/" class="localnav-menu-link">Marketing</a>
+						</li>
+						<li class="localnav-menu-item">
+							<a href="/apple-pay/resources/" class="localnav-menu-link">Resources</a>
+						</li>
+					</ul>
+				</div>
+				<div class="localnav-actions localnav-actions-center">
+					<div class="localnav-action localnav-action-menucta" aria-hidden="true">
+						<label for="localnav-menustate" class="localnav-menucta">
+							<span class="localnav-menucta-chevron"></span>
+						</label>
+					</div>
+					<div class="localnav-action localnav-action-button">
+						<a class="localnav-button button button-pill button-compact" href="https://applepaydemo.apple.com">Demo<span class="loc-en-only"></span>
+							<span class="localnav-action-product">Apple Pay</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</nav>
+<label id="localnav-curtain" for="localnav-menustate"></label>
+<script src="/assets/scripts/ac-localnav.built.js"></script>
+<script type="text/javascript" src="/assets/scripts/localnav.js"></script>
+
+
+	<main id="main" class="main" role="main">
+
+		<section class="section section-hero">
+			<div class="section-content">
+				<div class="row">
+					<div class="column large-centered large-9 small-12 text-center">
+
+						<h1>What’s new in Apple&nbsp;Pay</h1>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section section-payments">
+			<div class="section-content callout">
+				<div class="row row-center">
+					<div class="column large-offset-2 large-4 medium-offset-1 medium-5 small-offset-0 small-12">
+
+						<h2>Merchant&nbsp;token enhancements</h2>
+						<p>The all-new Preauthorized Payments section in Wallet provides a clearer view of recurring charges authorized through Apple&nbsp;Pay.<sup>1</sup> Now people can better track subscriptions, auto-reloads, installment loan repayments, recurring billing, and deferred payments to maintain better insight into their ongoing financial commitments. Preauthorized Payments also allow people to better manage their recurring charges with merchants or issuers, enabling to them revoke payment authorization in Wallet if needed. </p>
+						<p><a href="/apple-pay/merchant-tokens/" class="more">Learn more</a></p>
+					</div>
+					<div class="column large-offset-1 large-5 small-offset-0 small-12">
+						<figure class="device-wrap device-iphone-15-pro-titanium-container device-iphone-15-pro-titanium device-medium-for-small">
+							<picture class="device-screen">
+								<source media="(max-width:1068px)" srcset="/apple-pay/whats-new/images/screen-merchant-token-medium_2x.png" />
+								<img src="/apple-pay/whats-new/images/screen-merchant-token-large_2x.png" width="100%" alt="" aria-label="" />
+							</picture>
+							<figure class="device-hardware"></figure>
+						</figure>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section section-order-tracking">
+			<div class="section-content callout">
+				<div class="row row-center">
+					<div class="column large-offset-2 large-4 medium-offset-1 medium-5 small-offset-0 small-12">
+
+						<h2>Order tracking integration with&nbsp;Mail</h2>
+						<p>Wallet now uses Apple&nbsp;Intelligence to automatically find order details in Mail and track them for you, saving you time and hassle. Access key details like merchant name, tracking numbers, and shipping information, plus all related emails for an order, conveniently organized within Wallet. Powered by on-device Apple&nbsp;Intelligence, order information is processed securely, respecting people’s privacy.<sup>2</sup> </p>
+						<p><a href="/videos/play/wwdc2025/201/" class="icon icon-after icon-playcircle">What’s new in Apple Pay</a></p> 
+					</div>
+					<div class="column large-offset-1 large-5 small-offset-0 small-12">
+						<figure class="device-wrap device-iphone-15-pro-titanium-container device-iphone-15-pro-titanium device-medium-for-small">
+							<picture class="device-screen">
+								<source media="(max-width:1068px)" srcset="/apple-pay/whats-new/images/screen-order-tracking-medium_2x.png" />
+								<img src="/apple-pay/whats-new/images/screen-order-tracking-large_2x.png" width="100%" alt="" aria-label="" />
+							</picture>
+							<figure class="device-hardware"></figure>
+						</figure>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section section-more margin-top">
+			<div class="section-content margin-bottom-small">
+				<div class="row">
+					<div class="column large-centered large-10 small-12 text-center">
+
+						<h2>Explore more Apple&nbsp;Pay features</h2>
+					</div>
+				</div>
+			</div>
+			<div class="section-content callout">
+				<div class="row row-center">
+					<div class="column large-offset-2 large-4 medium-offset-1 medium-5 small-offset-0 small-12">
+
+						<h2>Support for third-party browsers</h2>
+						<p>Enable Apple Pay on your website for every browser<sup>3</sup> on Mac, PC, and beyond. Customers can now easily initiate Apple&nbsp;Pay from any computer and securely complete payment on their iPhone by scanning a code. Simply add the <a href="/documentation/applepayontheweb/loading-the-latest-version-of-apple-pay-js">Apple&nbsp;Pay&nbsp;JS&nbsp;SDK<span class="loc-en-only"></span></a> to your existing Apple&nbsp;Pay integration to extend support to more browsers and&nbsp;devices.</p>
+						<p><a href="/videos/play/wwdc2024/10108/" class="icon icon-after icon-playcircle">Learn more</a></p>
+					</div>
+					<div class="column large-offset-1 large-5 small-offset-0 small-12">
+						<figure class="device-wrap device-iphone-15-pro-titanium-container device-iphone-15-pro-titanium device-medium-for-small">
+							<picture class="device-screen">
+								<source media="(max-width:1068px)" srcset="/apple-pay/whats-new/images/screen-browser-support-medium_2x.png" />
+								<img src="/apple-pay/whats-new/images/screen-browser-support-large_2x.png" width="100%" alt="" aria-label="" />
+							</picture>
+							<figure class="device-hardware"></figure>
+						</figure>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section section-third-party">
+			<div class="section-content callout">
+				<div class="row row-center">
+					<div class="column large-offset-2 large-4 medium-offset-1 medium-5 small-offset-0 small-12">
+
+						<h2>Transfer funds with Apple&nbsp;Pay</h2>
+						<p>Let customers initiate a transfer of funds from an account to a card in Wallet. They can avoid manually entering card details by simply selecting the destination of funds directly on the payment sheet, with a concise view of any transfer fees set by the merchant.</p>
+						<p><a href="/videos/play/wwdc2024/10108/" class="icon icon-after icon-playcircle">Learn more</a></p>
+					</div>
+					<div class="column large-offset-1 large-5 small-offset-0 small-12">
+						<figure class="device-wrap device-iphone-14-pro-black-container device-iphone-14-pro-black device-medium-for-small">
+							<picture class="device-screen">
+								<source media="(max-width:1068px)" srcset="/apple-pay/whats-new/images/screen-transfer-funds-medium_2x.png" />
+								<img src="/apple-pay/whats-new/images/screen-transfer-funds-large_2x.png" width="100%" alt="" aria-label="" />
+							</picture>
+							<figure class="device-hardware"></figure>
+						</figure>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section section-tap-to-pay">
+			<div class="section-content callout">
+				<div class="row row-center">
+					<div class="column large-offset-2 large-4 medium-offset-1 medium-5 small-offset-0 small-12">
+
+						<h2>Tap&nbsp;to&nbsp;Pay on&nbsp;iPhone</h2>
+						<p>Enable your payment app to accept contactless payments, right on iPhone — without any extra terminals or hardware.<sup>4</sup> Merchants can use your app to accept payment using Apple&nbsp;Pay, Apple&nbsp;Watch, contactless credit or debit cards, and smartphones with other digital&nbsp;wallets.</p>
+						<p><a href="/tap-to-pay/" class="more">Learn more<span class="loc-j"></span></a></p>
+					</div>
+					<div class="column large-offset-1 large-5 small-offset-0 small-12">
+						<figure class="device-wrap device-iphone-15-pro-titanium-container device-iphone-15-pro-titanium device-medium-for-small">
+							<picture class="device-screen">
+								<source media="(max-width:1068px)" srcset="/apple-pay/whats-new/images/screen-ttp-medium_2x.jpg" />
+								<img src="/apple-pay/whats-new/images/screen-ttp-large_2x.jpg" width="100%" alt="iPhone 13 Pro displaying a ‘Hold Here to Pay’ prompt in a shopping cart." aria-label="iPhone 13 Pro displaying a ‘Hold Here to Pay’ prompt in a shopping cart." />
+							</picture>
+							<figure class="device-hardware"></figure>
+						</figure>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section section-multiple">
+			<div class="section-content callout">
+				<div class="row row-center">
+					<div class="column large-offset-2 large-4 medium-offset-1 medium-5 small-offset-0 small-12">
+
+						<h2>Pay multiple merchants in a single transaction</h2>
+						<p>Offer the ability to specify purchase amounts for multiple merchants within a single Apple&nbsp;Pay payment sheet. This allows the flexibility to let customers make a bundled purchase, such as a travel package with flight, rental car, and hotel, then send payments to individual merchants.</p>
+						<p><a href="/videos/play/wwdc2022/10041/?time=282" class="icon icon-after icon-playcircle">Learn more</a></p>
+					</div>
+					<div class="column large-offset-1 large-5 small-offset-0 small-12">
+						<figure class="device-wrap device-iphone-13-pro-silver-container device-medium-for-small">
+							<picture class="device-screen">
+								<source media="(max-width:1068px)" srcset="/apple-pay/whats-new/images/screen-payment-sheet-multiple-merchants-medium_2x.jpg" />
+								<img src="/apple-pay/whats-new/images/screen-payment-sheet-multiple-merchants-large_2x.jpg" width="100%" alt="iPhone showing an example of paying for car rental, hotel, and other travel expenses in one payment." aria-label="iPhone showing an example of paying for car rental, hotel, and other travel expenses in one payment." />
+							</picture>
+							<figure class="device-hardware"></figure>
+						</figure>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section section-watch">
+			<div class="section-content">
+				<div class="row">
+					<div class="column large-centered large-12 text-center">
+						<div class="callout whats-new-callout">
+							<h5><a href="/wallet/whats-new/">Find out what’s new <span class="nowrap more">in Apple Wallet</span></a></h5>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	<link rel="stylesheet" type="text/css" href="/assets/styles/router-strip.css?Wednesday, 21-May-2025 22:19:40 GMT" />
+<aside class="section developer-router-links bg-alt">
+	<div class="section-content">
+		<div class="row">
+			<div class="column large-4 small-6">
+				<a href="/design/human-interface-guidelines/apple-pay/" class="block text-center">
+					<div style="color: var(--color-fill-blue);font-size:70px">
+						<sf-symbol name="pencil.and.ruler" weight="light" scale="small" mode="monochrome"></sf-symbol>
+					</div>
+					<p><span class="block-link">Learn how to design for Apple&nbsp;Pay</span></p>
+				</a>
+			</div>
+			<div class="column large-4 small-6">
+				<a href="/apple-pay/payment-platforms/" class="block text-center">
+					<div style="color: var(--color-fill-blue);font-size:70px">
+						<sf-symbol name="creditcard" weight="light" scale="small" mode="monochrome"></sf-symbol>
+					</div>
+					<p><span class="block-link">Find a PSP that supports Apple&nbsp;Pay</span></p>
+				</a>
+			</div>
+			<div class="column large-4 small-6">
+				<a href="/contact/apple-pay/" class="block text-center">
+					<div style="color: var(--color-fill-blue);font-size:70px">
+						<sf-symbol name="envelope" weight="light" scale="small" mode="monochrome"></sf-symbol>
+					</div>
+					<p><span class="block-link">Contact Apple Developer Support<span class="loc-en-only"></span></span></p>
+				</a>
+			</div>
+		</div>
+	</div>
+</aside>
+	<link rel="stylesheet" href="/assets/styles/footer.dist.css?02002524063">
+<footer id="footer" class="footer" role="contentinfo" aria-labelledby="footer-label">
+    <div class="footer-content">
+        <h2 class="footer-label" id="footer-label">Developer Footer</h2>
+	<div class="footer-sosumi">
+		<ol>
+			<li>The preauthorized payment UI in Apple&nbsp;Wallet is available starting in iOS&nbsp;18.4, iPadOS&nbsp;18.4, and visionOS&nbsp;2.4 and later.</li>
+			<li>Order tracking integration with Mail is available in iOS&nbsp;26 beta.</li>
+			<li>Compatible browsers require web socket support.</li>
+			<li>Tap&nbsp;to&nbsp;Pay on&nbsp;iPhone requires a supported payment app and the latest version of iOS. Update to the latest version by going to Settings&nbsp;&gt; General&nbsp;&gt; Software Update. Tap Download and Install. Some contactless cards may not be accepted by your payment app. The Contactless Symbol is a trademark owned by and used with permission of EMVCo,&nbsp;LLC. Tap&nbsp;to&nbsp;Pay on iPhone is not available in all markets. View <a href="/tap-to-pay/regions/">Tap&nbsp;to&nbsp;Pay countries and regions<span class="loc-j"></span></a>.</li>
+		</ol>
+		<ul>
+			<li>
+				Apple&nbsp;Pay is a service provided by certain Apple affiliates, as designated by the <a href="https://www.apple.com/legal/privacy/data/en/apple-pay/">Apple&nbsp;Pay privacy notice</a>. Neither Apple&nbsp;Inc. nor its affiliates are a bank. Any card used in Apple&nbsp;Pay is offered by the card issuer.
+			</li>
+			<li>Features are subject to change. Some capabilities and services may not be available in all regions or all languages; some feature availability may vary due to local laws and&nbsp;regulations</li>
+		</ul>
+	</div>
+
+	<developer-breadcrumbs>
+		<li><a href="/apple-pay/">Apple&nbsp;Pay</a></li>
+		<li>What’s new</li>
+	</developer-breadcrumbs>
+	        <nav class="footer-directory" aria-label="Apple Developer Directory" role="navigation">
+	<!--googleoff: all-->
+	<div class="footer-directory-column">
+		<input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-platform" />
+		<div class="footer-directory-column-section">
+			<label class="footer-directory-column-section-label" for="footer-directory-column-section-state-platform">
+				<h3 class="footer-directory-column-section-title">Platforms</h3>
+			</label>
+			<a href="#footer-directory-column-section-state-platform" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+			<a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+			<ul class="footer-directory-column-section-list">
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/ios/">iOS</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/ipados/">iPadOS</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/macos/">macOS</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/tvos/">tvOS</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/visionos/">visionOS</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/watchos/">watchOS</a></li>
+			</ul>
+		</div>
+
+		<input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-tools" />
+		<div class="footer-directory-column-section">
+			<label class="footer-directory-column-section-label" for="footer-directory-column-section-state-tools">
+				<h3 class="footer-directory-column-section-title">Tools</h3>
+			</label>
+			<a href="#footer-directory-column-section-state-tools" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+			<a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+			<ul class="footer-directory-column-section-list">
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/swift/">Swift</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/swiftui/">SwiftUI</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/swift-playground/">Swift Playground</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/testflight/">TestFlight</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/xcode/">Xcode</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/xcode-cloud/">Xcode Cloud</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/icon-composer/">Icon Composer</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/sf-symbols/">SF Symbols</a></li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class="footer-directory-column">
+		<input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-topics" />
+		<div class="footer-directory-column-section">
+			<label class="footer-directory-column-section-label" for="footer-directory-column-section-state-topics">
+				<h3 class="footer-directory-column-section-title">Topics &amp; Technologies</h3>
+			</label>
+			<a href="#footer-directory-column-section-state-topics" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+			<a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+			<ul class="footer-directory-column-section-list">
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/accessibility/">Accessibility</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/accessories/">Accessories</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/apple-intelligence/">Apple Intelligence</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/app-store/">App Store</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/audio/">Audio &amp; Video</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/augmented-reality/">Augmented Reality</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/business/">Business</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/design/">Design</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/distribute/">Distribution</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/education/">Education</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/fonts/">Fonts</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/games/">Games</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/health-fitness/">Health &amp; Fitness</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/in-app-purchase/">In-App Purchase</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/localization/">Localization</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/maps/">Maps &amp; Location</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/machine-learning/">Machine Learning & AI</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://opensource.apple.com">Open Source</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/security/">Security</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/safari/">Safari &amp; Web</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="footer-directory-column">
+		<input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-resources" />
+		<div class="footer-directory-column-section">
+			<label class="footer-directory-column-section-label" for="footer-directory-column-section-state-resources">
+				<h3 class="footer-directory-column-section-title">Resources</h3>
+			</label>
+			<a href="#footer-directory-column-section-state-resources" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+			<a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+			<ul class="footer-directory-column-section-list">
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/documentation/">Documentation</a></li>
+					<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/documentation/samplecode">Sample Code</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/learn/">Tutorials</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/download/">Downloads</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/forums/">Forums</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/videos/">Videos</a></li>
+			</ul>
+		</div>
+
+		<input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-support" />
+		<div class="footer-directory-column-section">
+			<label class="footer-directory-column-section-label" for="footer-directory-column-section-state-support">
+				<h3 class="footer-directory-column-section-title">Support</h3>
+			</label>
+			<a href="#footer-directory-column-section-state-support" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+			<a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+			<ul class="footer-directory-column-section-list">
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/support/articles/">Support Articles</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/contact/">Contact Us</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/bug-reporting/">Bug Reporting</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/system-status/">System Status</a></li>
+			</ul>
+		</div>
+
+		<input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-account" />
+		<div class="footer-directory-column-section">
+			<label class="footer-directory-column-section-label" for="footer-directory-column-section-state-account">
+				<h3 class="footer-directory-column-section-title">Account</h3>
+			</label>
+			<a href="#footer-directory-column-section-state-account" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+			<a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+			<ul class="footer-directory-column-section-list">
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/account/">Apple Developer</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://appstoreconnect.apple.com/">App Store Connect</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/account/ios/certificate/">Certificates, IDs, &amp; Profiles</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://feedbackassistant.apple.com/">Feedback Assistant</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="footer-directory-column">
+		<input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-programs" />
+		<div class="footer-directory-column-section">
+			<label class="footer-directory-column-section-label" for="footer-directory-column-section-state-programs">
+				<h3 class="footer-directory-column-section-title">Programs</h3>
+			</label>
+			<a href="#footer-directory-column-section-state-programs" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+			<a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+			<ul class="footer-directory-column-section-list">
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/programs/">Apple Developer Program</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/programs/enterprise/">Apple Developer Enterprise Program</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/app-store/small-business-program/">App Store Small Business Program</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://mfi.apple.com/">MFi Program</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/programs/mini-apps-partner/">Mini Apps Partner Program</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/programs/news-partner/">News Partner Program</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/programs/video-partner/">Video Partner Program</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/security-bounty/">Security Bounty Program</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/programs/security-research-device/">Security Research Device Program</a></li>
+			</ul>
+		</div>
+
+		<input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-events" />
+		<div class="footer-directory-column-section">
+			<label class="footer-directory-column-section-label" for="footer-directory-column-section-state-events">
+				<h3 class="footer-directory-column-section-title">Events</h3>
+			</label>
+			<a href="#footer-directory-column-section-state-events" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+			<a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+			<ul class="footer-directory-column-section-list">
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/events/">Meet with Apple</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/events/developer-centers/">Apple Developer Centers</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/app-store/app-store-awards/">App Store Awards</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/design/awards/">Apple Design Awards</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/academies/">Apple Developer Academies</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/wwdc/">WWDC</a></li>
+			</ul>
+		</div>
+	</div>
+	<!--googleon: all-->
+</nav>
+        <section class="footer-mini" vocab="http://schema.org/" typeof="Organization">
+	<div class="footer-mini-news">
+		<div class="copy">
+			Get the <a href="https://apps.apple.com/us/app/apple-developer/id640199958">Apple Developer app</a>.
+		</div>
+		<div class="content">
+			<div class="color-scheme-toggle"
+				role="radiogroup"
+				tabindex="0"
+				aria-label="Select a color scheme preference">
+
+				<label data-color-scheme-option="light">
+
+					<input type="radio" value="light" autocomplete="off"
+						onchange="window.setPreferredColorScheme(event.target.value)" />
+
+					<div class="text">Light</div>
+
+				</label>
+
+				<label data-color-scheme-option="dark">
+
+					<input type="radio" value="dark" autocomplete="off"
+						onchange="window.setPreferredColorScheme(event.target.value)" />
+
+					<div class="text">Dark</div>
+
+				</label>
+
+				<label data-color-scheme-option="auto">
+
+					<input type="radio" value="auto" autocomplete="off"
+						onchange="window.setPreferredColorScheme(event.target.value)" />
+
+					<div class="text">Auto</div>
+
+				</label>
+
+			</div>
+			<script async src="/assets/scripts/color-scheme-toggle.js"></script>
+		</div>
+	</div>
+	<link rel="stylesheet" href="/assets/styles/language-dropdown.css?02002524063">
+	<div class="language-dropdown dropdown-container legacy-form hidden">
+		<select class="dropdown" aria-label="Language Dropdown"></select>
+		<span class="dropdown-icon icon icon-chevrondown" aria-hidden="true"></span>
+	</div>
+	<script src="/assets/scripts/language-dropdown.js?17182448067"></script>
+	<div class="footer-mini-legal">
+		<div class="footer-mini-legal-copyright">Copyright ©  2025 <a href="https://www.apple.com">Apple Inc.</a> All rights reserved.</div>
+		<div class="footer-mini-legal-links">
+			<a class="footer-mini-legal-link" href="https://www.apple.com/legal/internet-services/terms/site.html" class="first">Terms of Use</a>
+			<a class="footer-mini-legal-link" href="https://www.apple.com/legal/privacy/">Privacy Policy</a>
+			<a class="footer-mini-legal-link" href="/support/terms/">Agreements and Guidelines</a>
+		</div>
+	</div>
+</section>
+    </div>
+</footer>
+</body>
+</html>
